@@ -1,0 +1,28 @@
+# encodig
+defutf8	on
+defencoding utf8
+encoding
+
+# set scrollback
+defscrollback 10000
+
+# delete message
+startup_message off
+vbell off
+
+# set colors
+defbce on
+term xterm-256color
+
+# status bar
+#hardstatus alwayslastline '%{= kw}%02c:%s %{= .y}%H %L=%{= .b}%-w%46>%{= .r}%n %t*%{= .b}%+w%-16=%{= .y}[%l]'
+
+hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
+
+# shell
+shell $SHELL
+termcapinfo xterm* ti@:te@
+
+# delete buffer
+altscreen on
+
