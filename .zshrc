@@ -61,7 +61,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 alias vi='vim' 
 alias tx='tmux' 
 alias gip='curl ipinfo.io/ip'
-alias check='brew upgrade && brew cleanup'
+alias check='brew upgrade'
 alias fullclean='brew cleanup --dry-run'
 
 
