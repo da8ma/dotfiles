@@ -57,7 +57,11 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-# aliases
+# aliases 
+alias vi='vim' 
+alias tx='tmux' 
 alias gip='curl ipinfo.io/ip'
 alias check='brew upgrade && brew cleanup'
 alias fullclean='brew cleanup --dry-run'
+
+
