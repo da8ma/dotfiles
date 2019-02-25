@@ -1,0 +1,27 @@
+[user]
+	name = ryo8ma
+	email = 
+[color]
+	ui = auto 
+	diff = auto
+	status = auto
+	branch = auto
+
+[alias]
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	graph-s = log --oneline --graph --decorate
+	st = status
+	co = checkout
+	cm = commit
+	br = switch
+	review = diff origin/master...
+
+[help]
+	autocorrect = 1
+
+[credential]
+	helper = osxkeychain
+[diff]
+	tool	= vimdiff
+	algorithm = histogram
+	compactionHeuristic = true
