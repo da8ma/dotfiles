@@ -1,69 +1,60 @@
-source ~/.zplug/init.zsh
+# --------------------------------------------------
+#  zplug
+# --------------------------------------------------
 
-# make prezto reository 
-zplug "sorin-ionescu/prezto"
+# use zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+## theme
+zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+
+# load
 zplug load --verbose
 
-zplug "wbinglee/zsh-wakatime"
-
-# syntax
-zplug "chrissicool/zsh-256color"
-zplug "Tarrasch/zsh-colors"
-zplug "zsh-users/zsh-syntax-highlighting" #defer:2
-zplug "ascii-soup/zsh-url-highlighter"
-
-# program
-zplug "voronkovich/mysql.plugin.zsh"
-
-#補完
-zplug "zsh-users/zsh-completions"
-# tools
-#zplug "marzocchi/zsh-notify"
-#zplug "oknowton/zsh-dwim"
-zplug "mafredri/zsh-async"
-
-# チェック時刻を保存して.zshrcが新しくなっているときだけ読み込む
-# check コマンドで未インストール項目があるかどうか verbose にチェックし
-# false のとき（つまり未インストール項目がある）y/N プロンプトで
-# インストールする
-if [ ! ~/.zplug/last_zshrc_check_time -nt ~/.zshrc ]; then
-    touch ~/.zplug/last_zshrc_check_time
-    if ! zplug check --verbose; then
-       printf "Install? [y/N]: "
-       if read -q; then
-          echo; zplug install
-       fi
-    fi
-fi    
-
-# Then, source plugins and add commands to $PATH
-zplug load 
-
-# for cdr
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-
-#gnu commands
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-# zsh-git-prompt
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 # --------------------------------------------------
-# aliases  
+#  general
 # --------------------------------------------------
 
-alias vi='vim' 
-alias tx='tmux' 
+autoload -Uz colors
+colors
+
+### complement ###
+autoload -U add-zsh-hook
+autoload -Uz compinit
+compinit
+
+# history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+
+# --------------------------------------------------
+#  command config
+# --------------------------------------------------
+
+# set aliases
 alias gip='curl ipinfo.io/ip'
+alias ls='ls -FG'
+alias ll='ls -FGal'
+alias getpass='openssl rand -base64 10'
 alias check='brew upgrade'
 alias fullclean='brew cleanup --dry-run'
+alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
+#alias ping='ping -c 5'
 
+## Custom iTerm2 titlebar background colors
+#echo -e "\033]6;1;bg;red;brightness;40\a"
+#echo -e "\033]6;1;bg;green;brightness;44\a"
+#echo -e "\033]6;1;bg;blue;brightness;52\a"
+
+## Path
+
+# gnu-sed
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
