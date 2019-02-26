@@ -1,16 +1,16 @@
 # --------------------------------------------------
-#  zplug
+#  zplugin
 # --------------------------------------------------
 
-# use zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+### Added by Zplugin's installer
+source '/Users/r.yamada/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
 
 ## theme
-zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
-
-# load
-zplug load --verbose
+zplugin load denysdovhan/spaceship-prompt
+zplugin light zsh-users/zsh-syntax-highlighting
 
 # --------------------------------------------------
 #  general
@@ -18,11 +18,6 @@ zplug load --verbose
 
 autoload -Uz colors
 colors
-
-### complement ###
-autoload -U add-zsh-hook
-autoload -Uz compinit
-compinit
 
 # history
 HISTFILE=$HOME/.zsh_history
@@ -58,3 +53,9 @@ alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work j
 # gnu-sed
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+
+### Added by Zplugin's installer
+source '/Users/r.yamada/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
