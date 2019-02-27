@@ -5,11 +5,11 @@
 ### Added by Zplugin's installer
 source '/Users/r.yamada/.zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
+
+zplugin load denysdovhan/spaceship-prompt
+
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
-
-## theme
-zplugin load denysdovhan/spaceship-prompt
 
 # --------------------------------------------------
 #  general
