@@ -10,7 +10,6 @@ autoload -Uz _zplugin
 
 ## theme
 zplugin load denysdovhan/spaceship-prompt
-zplugin light zsh-users/zsh-syntax-highlighting
 
 # --------------------------------------------------
 #  general
@@ -53,9 +52,3 @@ alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work j
 # gnu-sed
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-
-### Added by Zplugin's installer
-source '/Users/r.yamada/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
