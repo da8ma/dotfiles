@@ -3,7 +3,7 @@
 # --------------------------------------------------
 
 ### Added by Zplugin's installer
-source '/Users/r.yamada/.zplugin/bin/zplugin.zsh'
+source $HOME/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 
 zplugin load denysdovhan/spaceship-prompt
