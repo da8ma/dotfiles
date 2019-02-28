@@ -33,13 +33,20 @@ setopt HIST_REDUCE_BLANKS
 # --------------------------------------------------
 
 # set aliases
+
+if [ "$(uname)" = Darwin ]; then
+    alias ls='ls -FG'
+    alias ll='ls -FGal'
+elif [ "$(uname)" = Linux ]; then
+    alias ls='ls --color=auto -sCF'
+fi
+
 alias gip='curl ipinfo.io/ip'
-alias ls='ls -FG'
-alias ll='ls -FGal'
 alias getpass='openssl rand -base64 10'
 alias check='brew upgrade'
 alias fullclean='brew cleanup --dry-run'
 alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
+alias console-login='minicom --device /dev/tty.usbserial --baudrate 19200'
 #alias ping='ping -c 5'
 
 ## Custom iTerm2 titlebar background colors
