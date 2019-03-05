@@ -7,6 +7,7 @@ source $HOME/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 
 zplugin load denysdovhan/spaceship-prompt
+zplugin light zdharma/fast-syntax-highlighting
 
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
