@@ -1,3 +1,8 @@
+#------------------------------------------------------------------#
+# File:     .zshrc   ZSH resource file                             #
+# Author:   @ryo_8ma <ryo.8mada1020@gmail.com>			   #
+#------------------------------------------------------------------#
+
 # --------------------------------------------------
 #  zplugin
 # --------------------------------------------------
@@ -21,8 +26,8 @@ colors
 
 # history
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=10000
+SAVEHIST=10000
 
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
