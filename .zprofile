@@ -6,4 +6,3 @@ export TERM=xterm-256color
 
 # for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-

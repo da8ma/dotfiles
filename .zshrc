@@ -53,6 +53,7 @@ alias check='brew upgrade'
 alias fullclean='brew cleanup --dry-run'
 alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
 alias console-login='minicom --device /dev/tty.usbserial --baudrate 19200'
+alias be='bundle exec'
 #alias ping='ping -c 5'
 
 ## Custom iTerm2 titlebar background colors
@@ -65,3 +66,9 @@ alias console-login='minicom --device /dev/tty.usbserial --baudrate 19200'
 # gnu-sed
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+
+# for rbenv
+if which rbenv >/dev/null; then
+    eval "$(rbenv init -)"
+    export PATH=$HOME/.rbenv/bin:$PATH
+fi
