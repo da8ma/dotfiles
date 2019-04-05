@@ -54,6 +54,7 @@ alias fullclean='brew cleanup --dry-run'
 alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
 alias console-login='minicom --device /dev/tty.usbserial --baudrate 19200'
 alias be='bundle exec'
+alias bundle='bundle _1.16.2_'
 #alias ping='ping -c 5'
 
 ## Custom iTerm2 titlebar background colors
