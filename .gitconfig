@@ -21,7 +21,13 @@
 
 [credential]
 	helper = osxkeychain
+
 [diff]
 	tool	= vimdiff
 	algorithm = histogram
 	compactionHeuristic = true
+
+[merge]
+	ff = false
+[pull]
+	ff = only
