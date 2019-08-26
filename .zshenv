@@ -10,3 +10,6 @@ export LC_CTYPE="${LANGUAGE}"
 
 # PIPENV_VENV_IN_PROJECT
 export PIPENV_VENV_IN_PROJECT=true
+
+# brew formulae PATH
+export PATH="/usr/local/sbin:$PATH"
