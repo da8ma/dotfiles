@@ -1,6 +1,8 @@
-if [ -f ~/.bashrc ]; then
-   source ~/.bashrc
+if [ -f "$HOME/.profile" ]; then
+    source "$HOME/.profile"
 fi
 
-# parallels
-#export VAGRANT_DEFAULT_PROVIDER=parallels
+if [ -f "$HOME/.bashrc" ]; then
+   source "${HOME}/.bashrc"
+fi
+
