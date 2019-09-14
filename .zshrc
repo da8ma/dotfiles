@@ -1,6 +1,6 @@
 #------------------------------------------------------------------#
 # File:     .zshrc   ZSH resource file                             #
-# Author:   @ryo_8ma <ryo.8mada1020@gmail.com>			   #
+# Author:   @da8ma <ryo.8mada1020@gmail.com>			   #
 #------------------------------------------------------------------#
 
 # --------------------------------------------------
@@ -53,7 +53,6 @@ fi
 alias gip='curl ipinfo.io/ip'
 alias getpass='openssl rand -base64 10'
 alias check='brew upgrade'
-alias fullclean='brew cleanup --dry-run'
 alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
 alias console-login='minicom --device /dev/tty.usbserial --baudrate 19200'
 alias be='bundle exec'
@@ -87,3 +86,4 @@ if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     source ~/.gnupg/.gpg-agent-info
     export GPG_AGENT_INFO
 fi
+
