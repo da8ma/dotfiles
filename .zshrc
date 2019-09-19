@@ -54,10 +54,8 @@ alias gip='curl ipinfo.io/ip'
 alias getpass='openssl rand -base64 10'
 alias check='brew upgrade'
 alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
-alias console-login='minicom --device /dev/tty.usbserial --baudrate 19200'
 alias be='bundle exec'
 alias bundle='bundle _1.16.2_'
-#alias ping='ping -c 5'
 
 ## Custom iTerm2 titlebar background colors
 #echo -e "\033]6;1;bg;red;brightness;40\a"
