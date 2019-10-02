@@ -11,5 +11,8 @@ export LC_CTYPE="${LANGUAGE}"
 # PIPENV_VENV_IN_PROJECT
 export PIPENV_VENV_IN_PROJECT=true
 
+# current node PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # brew formulae PATH
 export PATH="/usr/local/sbin:$PATH"
