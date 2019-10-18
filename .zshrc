@@ -53,7 +53,9 @@ fi
 alias gip='curl ipinfo.io/ip'
 alias getpass='openssl rand -base64 10'
 alias check='brew upgrade'
-alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
+alias d='docker'
+alias dc='docker-compose'
+#alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
 alias be='bundle exec'
 alias bundle='bundle _1.16.2_'
 
@@ -85,7 +87,6 @@ if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     export GPG_AGENT_INFO
 fi
 
-# google cloud sdk activate 
+# google cloud sdk activate
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-
