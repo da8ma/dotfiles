@@ -21,7 +21,7 @@
 	sw = switch
 	review = diff origin/master...
 	firstcom = "commit --allow-empty -m \"Initial commit\""
-    signcommit = "commit -S"
+	signcommit = commit -S
 
 [apply]
 
