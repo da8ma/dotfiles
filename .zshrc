@@ -73,8 +73,8 @@ MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
 # for rbenv
 if which rbenv >/dev/null; then
-    eval "$(rbenv init -)"
-    export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+  export PATH=$HOME/.rbenv/bin:$PATH
 fi
 
 # In order for gpg to find gpg-agent, gpg-agent must be running, and there must be an env
@@ -82,10 +82,16 @@ fi
 # in your shell's init script (ie, .bash_profile, .zshrc, whatever), will either start
 # gpg-agent or set up the GPG_AGENT_INFO variable if it's already running.
 
+# enable Yubikey authentification for the SSH client
+export GPG_TTY=$(tty)
+gpg-connect-agent /bye 2>/dev/null
+gpg-connect-agent updatestartuptty /bye 2>/dev/null
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
 # Add the following to your shell init to set up gpg-agent automatically for every shell
 if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gnupg/.gpg-agent-info
-    export GPG_AGENT_INFO
+  . "$HOME"/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
 fi
 
 # google cloud sdk activate
