@@ -1,3 +1,8 @@
+#--------------------------------------------------------------#
+#           Environment Variables                              #
+#--------------------------------------------------------------#
+
+
 # autoload
 autoload -Uz add-zsh-hook
 autoload -Uz compinit && compinit -u
