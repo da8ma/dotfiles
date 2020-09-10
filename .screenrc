@@ -25,5 +25,5 @@ shell $SHELL
 termcapinfo xterm* ti@:te@
 
 # delete buffer
-altscreen on
+#altscreen on
 
