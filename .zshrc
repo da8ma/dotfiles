@@ -8,16 +8,21 @@
 # --------------------------------------------------
 
 ### Added by Zplugin's installer
-source $HOME/.zplugin/bin/zplugin.zsh
-autoload -Uz _zplugin
+source $HOME/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Prompt theme
-zplugin load denysdovhan/spaceship-prompt
+zinit load denysdovhan/spaceship-prompt
 
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
+# A glance at the new for-syntax – load all of the above
+# plugins with a single command. For more information see:
+# https://zdharma.github.io/zinit/wiki/For-Syntax/
+zinit for \
+    light-mode  zsh-users/zsh-autosuggestions \
+    light-mode  zdharma/fast-syntax-highlighting \
+                zdharma/history-search-multi-word
 
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
 # --------------------------------------------------
