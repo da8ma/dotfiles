@@ -4,10 +4,18 @@
 #------------------------------------------------------------------#
 
 # --------------------------------------------------
-#  zplugin
+#  zinit
 # --------------------------------------------------
 
-### Added by Zplugin's installer
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
 source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -23,7 +31,15 @@ zinit for \
     light-mode  zdharma/fast-syntax-highlighting \
                 zdharma/history-search-multi-word
 
-### End of Zplugin's installer chunk
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
 
 # --------------------------------------------------
 #  general
@@ -89,16 +105,14 @@ fi
 
 # enable Yubikey authentification for the SSH client
 export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#gpgconf --launch gpg-agent
 gpg-connect-agent /bye 2>/dev/null
 gpg-connect-agent updatestartuptty /bye 2>/dev/null
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # Add the following to your shell init to set up gpg-agent automatically for every shell
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-  . "$HOME"/.gnupg/.gpg-agent-info
-  export GPG_AGENT_INFO
-fi
+#if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+#  . "$HOME"/.gnupg/.gpg-agent-info
+#  export GPG_AGENT_INFO
+#fi
 
-# google cloud sdk activate
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
