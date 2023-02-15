@@ -67,6 +67,11 @@ setopt HIST_REDUCE_BLANKS
 if [ "$(uname)" = Darwin ]; then
     alias ls='ls -FG'
     alias ll='ls -FGal'
+   if [ "$(uname -m)" = "arm64" ]; then
+       alias x86='arch -x86_64 zsh'
+   else
+       :
+   fi
 elif [ "$(uname)" = Linux ]; then
     alias ls='ls --color=auto -sCF'
 fi
