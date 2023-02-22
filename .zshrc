@@ -22,6 +22,7 @@ autoload -Uz _zinit
 
 # Prompt theme
 zinit load denysdovhan/spaceship-prompt
+#eval "$(starship init zsh)"
 
 # A glance at the new for-syntax – load all of the above
 # plugins with a single command. For more information see:
