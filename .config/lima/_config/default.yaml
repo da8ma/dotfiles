@@ -1,0 +1,59 @@
+#
+# From https://zenn.dev/na0x2c6/scraps/952141acdbfa37
+
+# Use VirtualizationFramework
+vmType: "vz"
+# Use virtiofs
+mountType: "virtiofs"
+
+# OS: "Linux".
+# 🟢 Builtin default: "Linux"
+os: null
+
+# Arch: "default", "x86_64", "aarch64".
+# 🟢 Builtin default: "default" (corresponds to the host architecture)
+arch: null
+
+# CPUs
+# 🟢 Builtin default: min(4, host CPU cores)
+cpus: 2
+
+# Setting of allocation memory. If not specified, half the memory amount.
+memory: "4GiB"
+
+# Disk size. 
+# Builtin default: "100GiB"
+disk: "20GiB"
+
+# Use Rosetta for x86_64 emulation
+rosetta:
+  enabled: true
+  binfmt: true
+
+# Home directory can be written and mounted.
+mounts:
+  - location: "~"
+    writable: true
+
+networks:
+  - vzNAT: true
+
+# Enable pasta
+provision:
+  - mode: user
+    script: |
+      #!/bin/bash
+      set -Eeux -o pipefail
+
+      CONF=~/.config/containers/containers.conf.d/pasta.conf
+
+      if [[ -e "$CONF" ]] ; then
+        exit 0
+      fi
+
+      mkdir -p $(dirname "$CONF")
+
+      cat <<-EOF > "$CONF"
+      [network]
+      default_rootless_network_cmd = "pasta"
+      EOF
