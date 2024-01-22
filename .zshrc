@@ -114,11 +114,11 @@ fi
 # gpg-agent or set up the GPG_AGENT_INFO variable if it's already running.
 
 # enable Yubikey authentification for the SSH client
-export GPG_TTY=$(tty)
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#xport GPG_TTY=$(tty)
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 #gpgconf --launch gpg-agent
-gpg-connect-agent /bye 2>/dev/null
-gpg-connect-agent updatestartuptty /bye 2>/dev/null
+#gpg-connect-agent /bye 2>/dev/null
+#gpg-connect-agent updatestartuptty /bye 2>/dev/null
 
 # Add the following to your shell init to set up gpg-agent automatically for every shell
 #if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
