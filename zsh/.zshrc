@@ -67,29 +67,10 @@ setopt HIST_REDUCE_BLANKS
 #  command config
 # --------------------------------------------------
 
-# set aliases
-
-if [ "$(uname)" = Darwin ]; then
-    alias ls='ls -FG'
-    alias ll='ls -FGal'
-   if [ "$(uname -m)" = "arm64" ]; then
-       alias x86='arch -x86_64 zsh'
-   else
-       :
-   fi
-elif [ "$(uname)" = Linux ]; then
-    alias ls='ls --color=auto -sCF'
+## Always load alias.zsh if it exists
+if [ -f "$HOME/.zsh/alias.zsh" ]; then
+ source "$HOME/.zsh/alias.zsh"
 fi
-
-alias gip='curl ipinfo.io/ip'
-alias getpass='openssl rand -base64 10'
-alias check='brew upgrade'
-alias d='docker'
-alias dc='docker-compose'
-alias drmi='docker rmi'
-#alias docker-jupyter='docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/datascience-notebook'
-alias be='bundle exec'
-alias bundle='bundle _1.16.2_'
 
 ## Custom iTerm2 titlebar background colors
 #echo -e "\033]6;1;bg;red;brightness;40\a"
