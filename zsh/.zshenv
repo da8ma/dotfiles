@@ -21,3 +21,11 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # brew formulae PATH
 export PATH="/usr/local/sbin:$PATH"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# uv
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Windsurf
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
